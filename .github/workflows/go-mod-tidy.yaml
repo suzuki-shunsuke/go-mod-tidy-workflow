@@ -39,7 +39,7 @@ jobs:
           go-version: ${{inputs.go-version}}
           cache: true
       - name: Issue a GitHub Access Token
-        uses: suzuki-shunsuke/github-token-action@v0.1.0
+        uses: suzuki-shunsuke/github-token-action@a058de0a42e494414cf4c112436d663a06fd16c0 # v0.1.0
         id: token
         with:
           github_token: ${{secrets.gh_token}}
@@ -54,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{steps.token.outputs.token}}
 
       - name: go mod tidy
-        uses: suzuki-shunsuke/go-mod-tidy-action@v0.1.0
+        uses: suzuki-shunsuke/go-mod-tidy-action@a8c9b2e35c4438294d75a75e8c313b0f392e70a2 # v0.1.0
         with:
           github_token: ${{steps.token.outputs.token}}
           skip_push: ${{inputs.skip_push}}
