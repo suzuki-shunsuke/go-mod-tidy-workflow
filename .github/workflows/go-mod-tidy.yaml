@@ -63,7 +63,7 @@ jobs:
           working_directory: ${{inputs.working_directory}}
 
       - name: go mod tidy
-        uses: suzuki-shunsuke/go-mod-tidy-action@a8c9b2e35c4438294d75a75e8c313b0f392e70a2 # v0.1.0
+        uses: suzuki-shunsuke/go-mod-tidy-action@67d43e82d9b5b3280b7082052dce18b77649476c # v0.1.1
         if: inputs.skip_push || github.event.pull_request.head.repo.fork
         with:
           skip_push: true
