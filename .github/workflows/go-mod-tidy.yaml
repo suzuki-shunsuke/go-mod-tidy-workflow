@@ -30,13 +30,14 @@ jobs:
       contents: read # For checkout private repository
     steps:
       - name: Checkout HEAD
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
         with:
           ref: ${{github.event.pull_request.head.sha}}
       - name: Set up Go
-        uses: actions/setup-go@v3.5.0
+        uses: actions/setup-go@6edd4406fa81c3da01a34fa6f6343087c207a568 # v3.5.0
         with:
           go-version: ${{inputs.go-version}}
+          cache: true
       - name: Issue a GitHub Access Token
         uses: suzuki-shunsuke/github-token-action@v0.1.0
         id: token
@@ -45,7 +46,7 @@ jobs:
           github_app_id: ${{secrets.gh_app_id}}
           github_app_private_key: ${{secrets.gh_app_private_key}}
       - name: Install int128/ghcp
-        uses: aquaproj/aqua-installer@v2.0.2
+        uses: aquaproj/aqua-installer@61e2563dfe7674cbf74fe6ec212e444198a3bb00 # v2.0.2
         with:
           aqua_version: ${{inputs.aqua_version}}
           working_directory: ${{inputs.working_directory}}
