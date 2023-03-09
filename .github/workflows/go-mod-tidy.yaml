@@ -41,12 +41,14 @@ jobs:
       - name: Issue a GitHub Access Token
         uses: suzuki-shunsuke/github-token-action@a058de0a42e494414cf4c112436d663a06fd16c0 # v0.1.0
         id: token
+        if: "! inputs.skip_push && ! github.event.pull_request.head.repo.fork"
         with:
           github_token: ${{secrets.gh_token}}
           github_app_id: ${{secrets.gh_app_id}}
           github_app_private_key: ${{secrets.gh_app_private_key}}
       - name: Install int128/ghcp
         uses: aquaproj/aqua-installer@61e2563dfe7674cbf74fe6ec212e444198a3bb00 # v2.0.2
+        if: "! inputs.skip_push && ! github.event.pull_request.head.repo.fork"
         with:
           aqua_version: ${{inputs.aqua_version}}
           working_directory: ${{inputs.working_directory}}
@@ -55,7 +57,14 @@ jobs:
 
       - name: go mod tidy
         uses: suzuki-shunsuke/go-mod-tidy-action@a8c9b2e35c4438294d75a75e8c313b0f392e70a2 # v0.1.0
+        if: "! inputs.skip_push && ! github.event.pull_request.head.repo.fork"
         with:
           github_token: ${{steps.token.outputs.token}}
-          skip_push: ${{inputs.skip_push}}
+          working_directory: ${{inputs.working_directory}}
+
+      - name: go mod tidy
+        uses: suzuki-shunsuke/go-mod-tidy-action@a8c9b2e35c4438294d75a75e8c313b0f392e70a2 # v0.1.0
+        if: inputs.skip_push || github.event.pull_request.head.repo.fork
+        with:
+          skip_push: true
           working_directory: ${{inputs.working_directory}}
