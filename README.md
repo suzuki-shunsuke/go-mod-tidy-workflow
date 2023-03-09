@@ -16,7 +16,7 @@ on:
 permissions: {}
 jobs:
   go-mod-tidy:
-    uses: suzuki-shunsuke/go-mod-tidy-workflow/.github/workflows/go-mod-tidy.yaml@main
+    uses: suzuki-shunsuke/go-mod-tidy-workflow/.github/workflows/go-mod-tidy.yaml@dd0258320254eb20e317fb41f08ba16c754f8ffa # v0.1.0
     with:
       go-version: 1.20.2
       aqua_version: v1.35.0
