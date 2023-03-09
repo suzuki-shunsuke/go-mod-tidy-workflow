@@ -1,6 +1,16 @@
 # go-mod-tidy-workflow
 
-GitHub Actions Reusable Workflow to run `go mod tidy` and push a commit
+GitHub Actions Reusable Workflow to run `go mod tidy` and push a commit. Keep go.mod and go.sum clean!
+
+![image](https://user-images.githubusercontent.com/13323303/223891482-2495d7c5-6d92-483d-82cc-9275038c9b7e.png)
+
+--
+
+![image](https://user-images.githubusercontent.com/13323303/223891658-0594823a-8a26-4bc5-b3ea-3a804d6923b1.png)
+
+[Workflow](.github/workflows/go-mod-tidy.yaml)
+
+Please see [go-mod-tidy-action](https://github.com/suzuki-shunsuke/go-mod-tidy-action) too!
 
 ## How to use
 
