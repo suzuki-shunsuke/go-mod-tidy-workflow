@@ -39,7 +39,7 @@ jobs:
           go-version: ${{inputs.go-version}}
           cache: true
       - name: Issue a GitHub Access Token
-        uses: suzuki-shunsuke/github-token-action@a058de0a42e494414cf4c112436d663a06fd16c0 # v0.1.0
+        uses: suzuki-shunsuke/github-token-action@04d633c696e9d09e958c8b815c75db9606d6d927 # v0.2.0
         id: token
         if: "! inputs.skip_push && ! github.event.pull_request.head.repo.fork"
         with:
