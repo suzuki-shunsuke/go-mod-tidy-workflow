@@ -32,11 +32,11 @@ jobs:
       AQUA_DISABLE_COSIGN: "true"
     steps:
       - name: Checkout HEAD
-        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3.5.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{github.event.pull_request.head.sha}}
       - name: Set up Go
-        uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
+        uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
         with:
           go-version: ${{inputs.go-version}}
           cache: true
@@ -49,7 +49,7 @@ jobs:
           github_app_id: ${{secrets.gh_app_id}}
           github_app_private_key: ${{secrets.gh_app_private_key}}
       - name: Install int128/ghcp
-        uses: aquaproj/aqua-installer@61e2563dfe7674cbf74fe6ec212e444198a3bb00 # v2.0.2
+        uses: aquaproj/aqua-installer@7c7338067bdb97d5bea2acc82b5870afca470d18 # v2.3.0
         if: "! inputs.skip_push && ! github.event.pull_request.head.repo.fork"
         with:
           aqua_version: ${{inputs.aqua_version}}
