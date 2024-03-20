@@ -47,7 +47,7 @@ jobs:
           github_app_id: ${{secrets.gh_app_id}}
           github_app_private_key: ${{secrets.gh_app_private_key}}
       - name: Install int128/ghcp
-        uses: aquaproj/aqua-installer@baef45299b36669c0015d0d8bc630272c3493e78 # v2.3.1
+        uses: aquaproj/aqua-installer@fd2089d1f56724d6456f24d58605e6964deae124 # v2.3.2
         if: "! inputs.skip_push && ! github.event.pull_request.head.repo.fork"
         with:
           aqua_version: ${{inputs.aqua_version}}
