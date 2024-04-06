@@ -1,6 +1,6 @@
 {
   "extends": [
     "config:recommended",
-    "github>suzuki-shunsuke/renovate-config#2.3.0"
+    "github>suzuki-shunsuke/renovate-config#2.4.0"
   ]
 }
