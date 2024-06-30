@@ -25,6 +25,7 @@ on:
 
 jobs:
   go-mod-tidy:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     permissions:
       contents: read # For checkout private repository
