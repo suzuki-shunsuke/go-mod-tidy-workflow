@@ -3,7 +3,10 @@ on:
   workflow_call:
     inputs:
       go-version:
-        required: true
+        required: false
+        type: string
+      go-version-file:
+        required: false
         type: string
       aqua_version:
         required: true
@@ -30,6 +33,10 @@ jobs:
     permissions:
       contents: read # For checkout private repository
     steps:
+      - run: |
+          echo "::error:: Either go-version or go-version-file must be set."
+          exit 1
+        if: inputs.go-version == '' && inputs.go-version-file == ''
       - name: Checkout HEAD
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
@@ -38,6 +45,7 @@ jobs:
         uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
         with:
           go-version: ${{inputs.go-version}}
+          go-version-file: ${{inputs.go-version-file}}
           cache: true
       - name: Issue a GitHub Access Token
         uses: suzuki-shunsuke/github-token-action@350d7506222e3a0016491abe85b5c4dd475b67d1 # v0.2.1
